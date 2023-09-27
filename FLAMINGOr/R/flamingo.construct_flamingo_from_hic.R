@@ -13,8 +13,7 @@
 #' @export
 flamingo.construct_flamingo_from_hic <- function(hic_file,normalization,resolution,chr_name,chr_size,alpha=-0.25,n_row=45000){
   options(scipen = 999)
-#  chr_number <- gsub("chr","",chr_name)
-  chr_number <- chr_name
+  chr_number <- gsub("chr","",chr_name)
   normalized_data = strawr::straw(normalization,hic_file,chr_number,chr_number,unit='BP',binsize=resolution)
   n <- ceiling(chr_size/resolution)
   i_ind <- 1+(normalized_data[,1]/resolution)
